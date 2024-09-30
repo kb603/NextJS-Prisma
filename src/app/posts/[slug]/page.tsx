@@ -1,13 +1,13 @@
 import prisma from "@/lib/db";
 
 interface Params {
-  id: string;
+  slug: string;
 }
 
 export default async function PostsPage({ params }: { params: Params }) {
   const post = await prisma.post.findUnique({
     where: {
-      id: params.id,
+      slug: params.slug,
     },
   });
   return (
